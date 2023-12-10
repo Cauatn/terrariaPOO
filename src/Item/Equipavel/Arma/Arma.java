@@ -1,6 +1,6 @@
 package Item.Equipavel.Arma;
 
-import Ataque.Jogador.JogadorAtaque;
+import Ataques.Jogador.JogadorAtaque;
 import Entidade.Entidade;
 import Item.Equipavel.Equipavel;
 

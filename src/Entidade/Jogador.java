@@ -1,12 +1,11 @@
 package Entidade;
 
+import Item.Equipavel.Armadura.ArmaduraBronze;
 import Item.Inventario;
 import Item.Equipavel.Arma.*;
-import Item.Equipavel.armadura.Armadura;
-import Item.Equipavel.armadura.TunicaVerde;
-import Item.Equipavel.escudo.Escudo;
+import Item.Equipavel.Armadura.Armadura;
 
-public class Jogador extends entidade.Entidade {
+public class Jogador extends Entidade {
 
     private String nomeUsuario;
     private int rupee;
@@ -17,7 +16,7 @@ public class Jogador extends entidade.Entidade {
     private Arma espada;
     private Arma armaPrimaria;
     private Arma armaSecundaria;
-    private Escudo escudo;
+    //private Escudo escudo;
     private Armadura armadura;
 
     //Itens que o jogador possui
@@ -36,8 +35,7 @@ public class Jogador extends entidade.Entidade {
         this.espada = new EspadaEsquecida();
         this.armaPrimaria = new SemArma();
         this.armaSecundaria = new SemArma();
-        this.escudo = null;
-        this.armadura = new TunicaVerde();
+        this.armadura = new ArmaduraBronze();
     }
 
     private void initInventario(){
@@ -70,23 +68,12 @@ public class Jogador extends entidade.Entidade {
         return super.toString() + "Jogador{" +
                 "nome='" + nomeUsuario + '\'' +
                 ", rupee=" + rupee +
-                ", energia=" + energia +
                 ", estaDefendendo=" + estaDefendendo +
                 ", espada=" + espada +
                 ", armaPrimaria=" + armaPrimaria +
                 ", armaSecundaria=" + armaSecundaria +
-                ", escudo=" + escudo +
                 ", armadura=" + armadura +
                 '}';
-    }
-
-    public void escudo(){
-        if(this.escudo != null){
-            swtichEstaDefendendo();
-        } else {
-            System.out.println("Jogador nao possui escudo equipado");
-        }
-
     }
 
     private void swtichEstaDefendendo(){
@@ -211,37 +198,30 @@ public class Jogador extends entidade.Entidade {
         }
     }
 
-
-
-
-    public void equiparEscudo(Escudo novoEscudo){
-        this.escudo = novoEscudo;
-    }
-
     public void trocarArmadura(Armadura novaArmadura){
         this.armadura = novaArmadura;
     }
 
-    private void atacar(entidade.Entidade alvo, Arma arma){
-        double energiaNecessaria = arma.getEnergia();
-        if((this.energia - energiaNecessaria) < 0){
-            System.out.println("Energia insuficiente para atacar.");
-        } else {
-            arma.atacar(alvo);
-            reduzirEnergia(energiaNecessaria);
-            System.out.println("Energia: -" + energiaNecessaria + ". Restante: " + this.energia);
-        }
+    private void atacar(Entidade alvo, Arma arma){
+//        double energiaNecessaria = arma.getEnergia();
+//        if((this.energia - energiaNecessaria) < 0){
+//            System.out.println("Energia insuficiente para atacar.");
+//        } else {
+//            arma.atacar(alvo);
+//            reduzirEnergia(energiaNecessaria);
+//            System.out.println("Energia: -" + energiaNecessaria + ". Restante: " + this.energia);
+//        }
     }
-
-    private void atacar(entidade.Entidade alvo){ // quando nao for passado nenhuma arma para o metodo atacar o jogador vai atacar utilizando sua espada por padrao
+    // quando nao for passado nenhuma arma para o metodo atacar o jogador vai atacar utilizando sua espada por padrao
+    private void atacar(Entidade alvo){
         this.espada.atacar(alvo);
     }
 
-    public void atacarEspada(entidade.Entidade alvo){
+    public void atacarEspada(Entidade alvo){
         atacar(alvo);
     }
 
-    public void atacarPrimaria(entidade.Entidade alvo){
+    public void atacarPrimaria(Entidade alvo){
         if(this.armaPrimaria != null){
             atacar(alvo, this.armaPrimaria);
         }else {
@@ -249,16 +229,12 @@ public class Jogador extends entidade.Entidade {
         }
     }
 
-    public void atacarSecundaria(entidade.Entidade alvo){
+    public void atacarSecundaria(Entidade alvo){
         if(this.armaSecundaria != null){
             atacar(alvo, this.armaSecundaria);
         } else {
             System.out.println("Jogador não possui arma secundaria equipada");
         }
-    }
-
-    public void reduzirEnergia(double energia){
-        this.energia = this.energia - energia;
     }
 
     public void restaurarEnergia(double energiaRestaurada){
@@ -323,7 +299,7 @@ public class Jogador extends entidade.Entidade {
     public static void main(String[] args){
         Jogador teste = new Jogador("TESTE");
 
-        teste.equiparArmaPrimaria(new Arco());
+        //teste.equiparArmaPrimaria(new Espada());
 
         System.out.printf(teste.invToString());
 
