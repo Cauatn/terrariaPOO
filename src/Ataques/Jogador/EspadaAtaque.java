@@ -1,4 +1,4 @@
-package Ataque.Jogador;
+package Ataques.Jogador;
 
 import Ataques.Ataque;
 import Entidade.Entidade;
@@ -8,10 +8,9 @@ public class EspadaAtaque extends Ataque {
 
    // private double gastoEnergia; // gasto de energia do jogador ao utilizar o ataque
 
-//    public JogadorAtaque(double gastoEnergia) {
-//        super();
-//        this.gastoEnergia = gastoEnergia;
-//    }
+    public EspadaAtaque() {
+        super();
+    }
 
 //    public double getGastoEnergia() {
 //        return gastoEnergia;
