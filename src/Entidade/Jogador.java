@@ -32,7 +32,7 @@ public class Jogador extends Entidade {
     }
 
     private void initEquipamentos(){
-        this.espada = new EspadaEsquecida();
+        this.espada = new EspadaQualquer();
         this.armaPrimaria = new SemArma();
         this.armaSecundaria = new SemArma();
         this.armadura = new ArmaduraBronze();
