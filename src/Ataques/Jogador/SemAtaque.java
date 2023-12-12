@@ -5,7 +5,7 @@ import Item.Equipavel.Arma.Arma;
 
 public class SemAtaque extends JogadorAtaque {
     public SemAtaque() {
-        super(0);
+        super();
     }
 
     @Override

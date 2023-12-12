@@ -1,11 +1,12 @@
 package Item.Equipavel.Arma;
 
 import Ataques.Jogador.EspadaAtaque;
+import Ataques.Jogador.JogadorAtaque;
 
 public class Espada extends Arma implements Comparable<Espada>{
 
     public Espada(String nome, int dano ) {
-        super(nome, 0, 0, dano, 0, new EspadaAtaque());
+        super(nome, 0, 0, dano, 0, new JogadorAtaque());
     }
 
     @Override

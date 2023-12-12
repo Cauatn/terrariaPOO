@@ -1,18 +1,14 @@
 package Lugares;
 
 import Item.Inventario;
-import Npc.*;
+import Npc.Monstros.Monstro;
 
 public class Lugar {
 
-    //private Monstro monstro;
+    private Monstro monstro;
     private Lugar lugar;
-
-    //importar npcs que estao disponiveis na area
-    //private Npc npcs= new Npc();
-
-    //private Spawns spawn = new Spawns();
-    //no nosso caso spwawns sera a classe que definira qual boss voce que lutar
+    private Personagens personagem = new Personagens();
+    private Spawns spawn = new Spawns();
     private Destinos destino = new Destinos();
     String Nome;
 
@@ -25,20 +21,22 @@ public class Lugar {
         return destino.Destino(Nome, inventario);
     }
 
-//    public Monstro Monstros(){
-//        System.out.println("Escolha qual monstro voce quer enfrentar!");
-//        return spawn.Spawn(Nome);
-//    }
 
     public void Personagens(){
         System.out.println("Personagens: ");
         personagem.Personagens(Nome);
     }
 
-    public void Acoes(){}
+    public void Acoes(){
+    }
 
     public String getNome() {
         return Nome;
+    }
+
+    public Monstro Monstros(){
+        System.out.println("Escolha qual monstro voce quer enfrentar!");
+        return spawn.Spawn(Nome);
     }
 
 }

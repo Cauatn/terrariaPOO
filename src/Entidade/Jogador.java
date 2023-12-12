@@ -155,49 +155,6 @@ public class Jogador extends Entidade {
         }
     }
 
-    public void trocarArmaSecundaria(int slot){
-        Arma aux = new Arma(this.armaSecundaria);
-        switch(slot){
-            case 1:
-                this.armaSecundaria = this.inventario.getArma1();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma1().getNome());
-                this.inventario.setArma1(aux);
-                return;
-            case 2:
-                this.armaSecundaria = this.inventario.getArma2();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma2().getNome());
-                this.inventario.setArma2(aux);
-                return;
-            case 3:
-                this.armaSecundaria = this.inventario.getArma3();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma3().getNome());
-                this.inventario.setArma3(aux);
-                return;
-            case 4:
-                this.armaSecundaria = this.inventario.getArma4();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma4().getNome());
-                this.inventario.setArma4(aux);
-                return;
-            case 5:
-                this.armaSecundaria = this.inventario.getArma5();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma5().getNome());
-                this.inventario.setArma5(aux);
-                return;
-            case 6:
-                this.armaSecundaria = this.inventario.getArma6();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma6().getNome());
-                this.inventario.setArma6(aux);
-                return;
-            case 7:
-                this.armaSecundaria = this.inventario.getArma7();
-                System.out.println(aux.getNome() + " trocada por " + this.inventario.getArma7().getNome());
-                this.inventario.setArma7(aux);
-                return;
-            default:
-                System.out.println("Slot inválido, não foi possível realizar a troca das armas");
-        }
-    }
-
     public void trocarArmadura(Armadura novaArmadura){
         this.armadura = novaArmadura;
     }
@@ -299,7 +256,7 @@ public class Jogador extends Entidade {
     public static void main(String[] args){
         Jogador teste = new Jogador("TESTE");
 
-        //teste.equiparArmaPrimaria(new Espada());
+        teste.equiparArmaPrimaria(new EspadaQualquer());
 
         System.out.printf(teste.invToString());
 
@@ -307,7 +264,6 @@ public class Jogador extends Entidade {
         System.out.println();
 
         teste.trocarArmaPrimaria(1);
-        teste.trocarArmaSecundaria(2);
 
         teste.mostrarEquipamentos();
         System.out.println(teste.invToString());
